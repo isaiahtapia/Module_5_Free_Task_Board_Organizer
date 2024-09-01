@@ -3,7 +3,6 @@ const $taskInProgress = $('.in-progress');
 const $addTaskBtn = $('#add-task');
 const $taskDone = $('.done');
 
-// Function that creates a task
 function createTask() {
     const taskId = generateRandomNumber();
     const $taskTitle = $('#task-title');
@@ -20,10 +19,6 @@ function createTask() {
 
     let tasks = getTaskData();
 
-    if (!tasks) {
-        tasks = [];
-    }
-
     tasks.push(Task);
 
     localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -36,13 +31,7 @@ function createTask() {
 
     outputTasks();
 }
-//Get tasks object from local storage
-function getTaskData() {
-    const taskData = JSON.parse(localStorage.getItem('tasks'));
-    return taskData;
-}
 
-//Create a function that deletes a task
 function deleteTask(eventObj) {
     const btn = $(eventObj.target);
     const taskId = btn.closest('article').data('id');
@@ -54,14 +43,15 @@ function deleteTask(eventObj) {
     outputTasks();
 }
 
-//Create the drag function
+function getTaskData() {
+    return JSON.parse(localStorage.getItem('tasks')) || [];
+}
+
 function setDrag() {
-    $('main').on('mousedown', 'article', function() {
-        $(this).draggable({
-            opacity: .5,
-            zIndex: 200,
-            helper: 'clone'
-        });
+    $('article').draggable({
+        opacity: 0.5,
+        zIndex: 700,
+
     });
 }
 
@@ -133,6 +123,8 @@ function init() {
     $('main').on('click', 'button.bg-danger', deleteTask);
     $addTaskBtn.on('click', createTask);
     outputTasks();
+
+    setDrag();
 }
 
 init();

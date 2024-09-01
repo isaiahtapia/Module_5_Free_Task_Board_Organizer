@@ -1,23 +1,20 @@
-html, body {
+html,
+body {
     height: 100%;
-  }
-  
-  body {
+}
+
+body {
     font-family: sans-serif;
     font-size: 16px;
-  }
-  .task-card:hover {
+}
+
+article {
+    position: relative;
+    /* or absolute, depending on your layout */
+    z-index: 1000;
+    /* Adjust the z-index value as needed */
+}
+
+.task-card:hover {
     cursor: grab;
-  }
-  
-  article.alert {
-    background-color: rgb(240, 255, 196) !important;
-  }
-  
-  article.past-due {
-    background-color: rgba(240, 0, 0, 0.551) !important;
-    }
-  
-  article.done {
-    background-color: rgba(154, 245, 165, 0.432) !important;
-  }
+}
