@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <title>Task Organizer</title>
+
+</head>
+
+<body>
+
+    <header class="p-3 mb-4 text-center border-bottom border-5">
+
+        <h1 class="display-3">Task Organizer</h1>
+        <p class="lead">A simple Kanban board for task management</p>
+        <div class="text-center mb-4">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">Add Task</button>
+        </div>
+
+    </header>
+
+    <main>
+        <section class="row swim-lanes text-center justify-content-between">   
+            <div class="col-13 p-3 d-flex">
+                <div id="todo" class="card border-light mb-3 flex-grow-1">
+                    <div class="card-header bg-white">
+                        <h3 class="card-title mb-1">To Do</h3>
+                    </div>
+                    <div class="todo card-body bg-light">
+                        <div id="todo"></div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-13 p-3 d-flex">
+                <div id="in-progress" class="card border-light lane mb-3 flex-grow-1">
+                    <div class="card-header bg-white">
+                        <h3 class="card-title mb-1">In Progress</h3>
+                    </div>
+                    <div class="in-progress card-body bg-light">
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-13 d-flex p-3">
+                <div id="done" class="card border-light mb-3 flex-grow-1">
+                    <div class="card-header bg-white">
+                        <h3 class="card-title mb-1">Done</h3>
+                    </div>
+                    <div class="done card-body bg-light">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <li class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5">Add New Task:</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="taskTitle" class="col-form-label">Task Title</label>
+                            <input type="text" class="form-control" id="task-title">
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="col-form-label">Description:</label>
+                            <textarea class="form-control" id="description-info"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="dueDate" class="col-form-label">Due Date</label>
+                            <input class="form-control" id="dueDate">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="add-task">Add Task</button>
+                </div>
+            </div>
+        </div>
+    </li>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"
+        integrity="sha256-sw0iNNXmOJbQhYFuC9OF2kOlD5KQKe1y5lfBn4C9Sjg=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+
+</body>
+
+</html>
